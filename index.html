@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h3>Import Products</h3>
+    <div class="steps">
+        <div class="step-1">
+            <p>Step 1: </p>
+            <div class="content1">
+                <label for="myfile"> Select File</label><br><br>
+                <input type="file" name="myfile" id="myfile"><br><br>
+                <p>Supported File Type(s) : .CSV, .JSON</p>
+            </div>
+        </div>
+        <div class="step-2">
+            <p>Step 2: </p>
+            <div class="content2">
+                <p>Specify Format</p><br>
+                <form action="">
+                    <div class="inside_content2">
+                        <div class="label_inside_content2">
+                            <label for="file_type">File Type</label><br><br><br>
+                            <label for="char_encoding">Character Encoding</label><br><br><br>
+                            <label for="delimiter">File Type</label><br><br>
+                            <label for="header_checkbox">Has Header</label>
+                        </div>
+                        <div class="input_inside_content2">
+                            <select name="file_type" id="file_type" >
+                                <option value="">CSV</option>
+                                <option value="">JSON</option>
+                            </select><br><br>
+                            
+                            <select name="char_encoding" id="char_encoding">
+                                <option value="1">UTF-8</option>
+                                <option value ="2"> UTF-16</option>
+                                <option value = "3"> UTF-32</option>
+                            </select><br><br>
+                            
+                            <select name="delimiter" id="delimiter">
+                                <option value="1">Comma</option>
+                                <option value="2">Space</option>
+                                <option value ="3">Under Score</option>
 
+                            </select><br><br>
+                            
+                            <input type="checkbox" id="header_checkbox">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+    <div class="step-3">
+        <input type="checkbox" id="step3">
+   
+            <label for="step3">Step 3:<span class="span1_step-3">Display Handling</span><br><br>
+            <span class="span2_step-3">Select the fields to be displayed</span>
+            </label>
+            <div style="display: flex;">
+            <p style="padding-left: 110px;">Available Fields</p>
+            <p style="padding-left: 135px;">Fields to be Displayed</p>
+            </div>
+
+            <section class="container">
+            <div>
+                <select id="leftValues" size="8" multiple>
+                    <option>ProductId</option>
+                    <option>Subcategory</option>
+                    <option>Title</option>
+                    <option>Price</option>
+                    <option>Popularity</option>
+                    <option>Description</option>
+                    <option>Rating</option>
+                    <option>UTM Source</option>
+                    <option>UTM Medium
+
+                    </option>
+
+                </select>
+            </div>
+            <div class="center_buttons">
+                <input type="button" id="btnRight" value="&gt;&gt;" />&emsp;
+                <input type="button" id="btnLeft" value="&lt;&lt;" />
+            </div>
+            <div>
+                <select id="rightValues" size="5" multiple></select>
+            </div>
+        </section>
+        <script>
+            $("#btnRight").click(function () {
+                    var selectedItem = $("#leftValues option:selected");
+                    $("#rightValues").append(selectedItem);
+                });
+
+                $("#btnLeft").click(function () {
+                    var selectedItem = $("#rightValues option:selected");
+                    $("#leftValues").append(selectedItem);
+                });
+
+              
+
+        </script>
+    </div>
+    <div class="bottom_buttons">
+        <button class="next_button"> <b>Next</b></button>
+        <button class="cancel_button"><b>Cancel</b></button>
+    </div>
+</body>
+</html>
